@@ -5,9 +5,15 @@
     </head>
     <body>
         <button>hello</button>
+        <button class="js-button">Second button</button>
+        
+
         <script>
             console.log(document.querySelector('button').innerHTML);
             document.querySelector('button').innerHTML = 'Changed';
+            const buttonElement = document.querySelector('js-button');
+            console.log(buttonElement);
+
             /*
             document.title = 'Good job!';
             console.log(document.title);
