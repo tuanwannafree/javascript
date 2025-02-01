@@ -1,3 +1,4 @@
+/*
 const products = [{
     image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
     name: 'Black and Gray Athletic Cotton Socks',
@@ -27,8 +28,21 @@ const products = [{
     priceCents: 799
 },
 
+{
+    image: 'images/products/black-2-slot-toaster.jpg',
+    name: '2 Slot Toaster - Black',
+    rating: {
+        starts: 5,
+        count: 2197
+    },
+    priceCents: 1899
+},
+
+
+
 
 ];
+*/
 
 let productsHTML = '';
 
