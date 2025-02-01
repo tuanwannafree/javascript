@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions</title>
+    </head>
+    <body>
+        <script>
+            function greeting() { // function are values. Types of values (numbers, strings, nbooleans)
+                console.log('hello');
+            }
+            greeting(); // calling the function
+
+            const num = 2;
+            const function1 = function greeting() {
+                console.log('hello2');
+            };
+
+            console.log(function1);
+
+            console.log(typeof function1);
+
+            function1();
+
+            const function2 = function() { // Anonymous Function (function without a name)
+                console.log('hello2');
+            };
+            function2();
+            const object1 = {
+                num: 2,
+                fun: function greeting() { // method (function saved inside an objet)
+                    console.log('hello3');
+                }
+            };
+            object1.fun();
+
+            /*
+            What else can we do with a value ?
+            - pass a value into a function
+            */
+            
+            function display(param) {
+                console.log(param);
+            }
+            display(2); // pass a value into a function
+            // we can also pass a function into a functon
+            function run(param) {
+                param();
+            }
+
+            run(function() {
+                console.log('hello4'); // a callback function
+            });
+
+            setTimeout(function() { // Advantage : - it doesn't block our code for 3 seconds
+                console.log('time out');
+                console.log('timeout2');
+            }, 3000); // 1. A function we want to run in te future
+            // 2. How long to wait before running this function (a number in milliseconds) 1000 milliseconds = 1 second
+            
+            console.log('next line');
+
+            // Asynchronous Code - won't wait for a line to finish before going to the next line
+            // Synchronous Code - will wait for one line to finish before going to the next line
+            /*
+            setInterval(function() { // It will keep running the function every 3 seconds
+                console.log('interval'); // It will keep running a function in the future
+            }, 3000);
+            */
+
+            console.log('the next line 2');
+
+            [
+                'make dinner',
+                'wash dishes',
+                'watch youtube'
+            ].forEach(function(value, index) { // .forEach() is the preferred way to loop through an array
+                if(value === 'wash dishes') {
+                    return; // as continue to skip 
+                }
+                console.log(index);
+                console.log(value);
+            });
+        </script>
+    </body>
+</html>
