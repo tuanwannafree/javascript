@@ -11,6 +11,10 @@ const today = dayjs();
 const daystring = today.add(7, 'days');
 console.log(daystring.format('dddd, MMMM D'));
 
+function renderOrderSumary() {
+
+
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -157,6 +161,9 @@ document.querySelectorAll('.js-delivery-option')
             const { productId, deliveryOptionId } = element.dataset;
             updateDeliveryOption(productId, deliveryOptionId);
             console.log('Updated cart:', cart);
-
+            renderOrderSumary();
         });
     });
+
+}
+renderOrderSumary();
