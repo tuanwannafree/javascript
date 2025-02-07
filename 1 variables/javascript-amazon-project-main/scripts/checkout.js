@@ -32,7 +32,7 @@ cart.forEach((cartItem) => {
 
     const today = dayjs();
     const deliveryDate = today.add(
-        matchingProduct.deliveryDays,
+        deliveryOption.deliveryDays,
         'days'
     );
     const dateString = deliveryDate.format(
@@ -110,7 +110,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
             data-product-id="${matchingProduct.id}"
             data-delivery-option-id="${deliveryOption.id}">
                 <input type="radio"
-                        ${isChecked ? 'check' : ''}
+                        ${isChecked ? 'checked' : ''}
                         class="delivery-option-input"
                         name="delivery-option-${matchingProduct.id}">
                     <div>
@@ -151,7 +151,10 @@ document.querySelectorAll('.js-delete-link')
     document.querySelectorAll('.js-delivery-option')
         .forEach((element) => {
             element.addEventListener('click', () => {
-                const {productId, deliveryOptionId} = element.dataset;
+                const productId = element.dataset.productId;
+                const deliveryOptionId = element.dataset.deliveryOptionId;  
                 updateDeliveryOption(productId, deliveryOptionId);
+
+
             });
         });
