@@ -4,14 +4,7 @@ import { formatCurrency } from '../utils/money.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
-
-hello();
-
-const today = dayjs();
-const daystring = today.add(7, 'days');
-console.log(daystring.format('dddd, MMMM D'));
-
-
+import { renderPaymentSummary } from './paymentSummary.js';
 
 export function renderOrderSumary() {
 
@@ -142,6 +135,8 @@ export function renderOrderSumary() {
                 container.remove();
                 //console.log(cart);
 
+                renderPaymentSummary();
+
             });
         }); 
 
@@ -152,6 +147,7 @@ export function renderOrderSumary() {
                 updateDeliveryOption(productId, deliveryOptionId);
                 console.log('Updated cart:', cart);
                 renderOrderSumary();
+                renderPaymentSummary();
             });
         });
 
